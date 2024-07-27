@@ -10,18 +10,18 @@ public:
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                int live_neighbors = 0;
+                int one = 0;
                 for (int k = 0; k < 8; k++) {
                     int u = i + x[k];
                     int v = j + y[k];
                     if (u >= 0 && u < m && v >= 0 && v < n) {
-                        live_neighbors += temp[u][v];
+                        one += temp[u][v];
                     }
                 }
 
-                if (temp[i][j] == 1 && (live_neighbors < 2 || live_neighbors > 3)) {
+                if (temp[i][j] == 1 && (one < 2 || one > 3)) {
                     board[i][j] = 0;
-                } else if (temp[i][j] == 0 && live_neighbors == 3) {
+                } else if (temp[i][j] == 0 && one == 3) {
                     board[i][j] = 1;
                 }
             }
